@@ -8,7 +8,7 @@
 |---|---:|---|
 | `ApiGateway` | 5000 | — |
 | `AuthService` | 5001 | `AuthService/miniproject_auth.db` |
-| `CatalogService` (`WebApplication1CatalogService`) | 5002 | `WebApplication1CatalogService/miniproject_catalog.db` |
+| `CatalogService` (`CatalogService`) | 5002 | `CatalogService/miniproject_catalog.db` |
 | `OrderingService` | 5003 | `OrderingService/ordering.db` |
 | `laba0Net` (моноліт) | 5100 | `laba0Net/monolith.db` |
 
@@ -20,7 +20,7 @@ Auth, Catalog і Ordering мають окремі DbContext, міграції т
 
 ```powershell
 dotnet user-secrets set "Jwt:Key" "<спільний випадковий ключ довжиною щонайменше 32 байти>" --project AuthService\AuthService.csproj
-dotnet user-secrets set "Jwt:Key" "<той самий ключ>" --project WebApplication1CatalogService\CatalogService.csproj
+dotnet user-secrets set "Jwt:Key" "<той самий ключ>" --project CatalogService\CatalogService.csproj
 dotnet user-secrets set "Jwt:Key" "<той самий ключ>" --project OrderingService\OrderingService.csproj
 dotnet user-secrets set "BootstrapAdmin:Email" "admin@example.test" --project AuthService\AuthService.csproj
 dotnet user-secrets set "BootstrapAdmin:Password" "<пароль адміністратора щонайменше 12 символів>" --project AuthService\AuthService.csproj
@@ -33,7 +33,7 @@ dotnet user-secrets set "BootstrapAdmin:Password" "<пароль адмініс�
 Застосуй міграцію Catalog (після оновлення моделі міграція звільняє ID 1–3 для збереження ідентифікаторів товарів моноліту):
 
 ```powershell
-dotnet ef database update --project WebApplication1CatalogService\CatalogService.csproj --startup-project WebApplication1CatalogService\CatalogService.csproj
+dotnet ef database update --project CatalogService\CatalogService.csproj --startup-project CatalogService\CatalogService.csproj
 ```
 
 Зупини застосунки, якщо вони працюють, і запусти одноразову утиліту копіювання. Вона читає монолітну базу лише як зовнішній інструмент міграції, зберігає ID і залишок товарів, створює відсутні категорії, не перезаписує конфліктні записи й безпечно підтримує повторний запуск. Після перемикання каталогу цей скрипт більше не запускай: CatalogService стає єдиним власником даних.
@@ -57,7 +57,7 @@ python scripts\import_orders.py
 ```powershell
 dotnet run --project laba0Net\laba0Net.csproj --urls http://localhost:5100
 dotnet run --project AuthService\AuthService.csproj --launch-profile http
-dotnet run --project WebApplication1CatalogService\CatalogService.csproj --launch-profile http
+dotnet run --project CatalogService\CatalogService.csproj --launch-profile http
 dotnet run --project OrderingService\OrderingService.csproj --launch-profile http
 dotnet run --project ApiGateway\ApiGateway.csproj --launch-profile http
 ```

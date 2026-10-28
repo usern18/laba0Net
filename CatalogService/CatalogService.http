@@ -1,0 +1,9 @@
+@CatalogService_HostAddress = http://localhost:5002
+
+### Health
+GET {{CatalogService_HostAddress}}/health
+Accept: application/json
+
+### List items
+GET {{CatalogService_HostAddress}}/api/v1/catalog/items?page=1&pageSize=5
+Accept: application/json

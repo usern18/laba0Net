@@ -1,6 +1,0 @@
-@WebApplication1CatalogService_HostAddress = http://localhost:5105
-
-GET {{WebApplication1CatalogService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

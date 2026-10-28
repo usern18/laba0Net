@@ -13,7 +13,7 @@ from pathlib import Path
 def main() -> int:
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument("--source", type=Path, default=Path("laba0Net/monolith.db"))
-	parser.add_argument("--target", type=Path, default=Path("WebApplication1CatalogService/miniproject_catalog.db"))
+	parser.add_argument("--target", type=Path, default=Path("CatalogService/miniproject_catalog.db"))
 	args = parser.parse_args()
 
 	source_path = args.source.resolve()

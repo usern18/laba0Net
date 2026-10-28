@@ -1,0 +1,14 @@
+﻿# Порівняння поведінки: було / стало
+Знімок моноліту до винесення не зберігся, тому baseline зафіксовано з нового сервісу через шлюз (:5000) і закріплено інтеграційними тестами.
+| № | Сценарій | Результат через шлюз | Тест |
+|---|---|---|---|
+| 1 | Створення з коректними даними | 201, id, snapshot назви й ціни | Create_ValidOrder_Returns201... |
+| 2 | Без токена | 401 | Create_WithoutToken_Returns401 |
+| 3 | Неіснуючий товар | 400 "Catalog item does not exist" | Create_WhenCatalogItemDoesNotExist... |
+| 4 | Кількість 0 | 400, errors.Quantity | Create_WithNonPositiveQuantity... |
+| 5 | Повтор Idempotency-Key | 201, те саме id, дубля немає | Create_RepeatedIdempotencyKey... |
+| 6 | Своє замовлення | 200 | GetById_OwnOrder... |
+| 7 | Чуже замовлення | 404 "Order not found" | GetById_OtherUsersOrder... |
+| 8 | Скасування і повтор | 204 і 204 | CancelOrder_ChangesStatusAndIsSafeToRepeat |
+| 9 | Каталог недоступний | 503 з Retry-After | Create_WhenCatalogIsUnavailable... |
+| 10 | Список з пагінацією | 200, items/page/pageSize/totalCount | GetAll_FiltersAndPaginates... |

@@ -1,0 +1,27 @@
+@OrderingService_HostAddress = http://localhost:5003
+@AccessToken = replace-with-access-token
+
+### Create an order (the UserId is read from the JWT, not the JSON body)
+POST {{OrderingService_HostAddress}}/api/orders
+Authorization: Bearer {{AccessToken}}
+Idempotency-Key: order-request-001
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "quantity": 2
+}
+
+### List the current user's orders
+GET {{OrderingService_HostAddress}}/api/orders?page=1&pageSize=20&status=Pending
+Authorization: Bearer {{AccessToken}}
+Accept: application/json
+
+### Get an order owned by the current user
+GET {{OrderingService_HostAddress}}/api/orders/1
+Authorization: Bearer {{AccessToken}}
+Accept: application/json
+
+### Cancel an order (repeating this call is safe)
+POST {{OrderingService_HostAddress}}/api/orders/1/cancel
+Authorization: Bearer {{AccessToken}}

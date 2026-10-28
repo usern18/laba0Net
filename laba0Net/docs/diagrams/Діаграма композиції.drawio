@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Сторінка-1" id="1RrDxewe4hzfsUUPsS2g">
+    <mxGraphModel dx="1764" dy="995" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0fBhj151-9g21Eerl8Ov-17" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Клієнт&#xa;Web / Browser" vertex="1">
+          <mxGeometry height="78" width="166" x="1620" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-18" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="API Gateway&#xa;Ocelot&#xa;Port: 5000&#xa;ЗАРАЗ" vertex="1">
+          <mxGeometry height="126" width="150" x="1627" y="1042" as="geometry" />
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-19" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Моноліт&#xa;ASP.NET Core&#xa;Port: 5100&#xa;&#xa;Auth&#xa;Catalog&#xa;Orders&#xa;Інші функції&#xa;ЗАРАЗ" vertex="1">
+          <mxGeometry height="246" width="154" x="1423" y="1266" as="geometry" />
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-20" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="MySQL&#xa;Монолітна БД" vertex="1">
+          <mxGeometry height="78" width="161" x="1420" y="1586" as="geometry" />
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-21" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Auth Service&#xa;Port: 5201&#xa;МАЙБУТНЄ" vertex="1">
+          <mxGeometry height="102" width="150" x="1628" y="1338" as="geometry" />
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-22" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Auth DB&#xa;МАЙБУТНЄ" vertex="1">
+          <mxGeometry height="78" width="140" x="1632" y="1586" as="geometry" />
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-23" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Catalog Service&#xa;Port: 5202&#xa;МАЙБУТНЄ" vertex="1">
+          <mxGeometry height="102" width="171" x="1827" y="1338" as="geometry" />
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-24" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Catalog DB&#xa;МАЙБУТНЄ" vertex="1">
+          <mxGeometry height="78" width="140" x="1843" y="1586" as="geometry" />
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-25" edge="1" parent="1" source="0fBhj151-9g21Eerl8Ov-17" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="0fBhj151-9g21Eerl8Ov-18" value="HTTP/REST">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-26" edge="1" parent="1" source="0fBhj151-9g21Eerl8Ov-18" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.83;entryX=0.5;entryY=0;rounded=0;" target="0fBhj151-9g21Eerl8Ov-19" value="HTTP/REST">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1500" y="1217" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-27" edge="1" parent="1" source="0fBhj151-9g21Eerl8Ov-19" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="0fBhj151-9g21Eerl8Ov-20" value="SQL">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-28" edge="1" parent="1" source="0fBhj151-9g21Eerl8Ov-18" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="0fBhj151-9g21Eerl8Ov-21" value="HTTP/REST&#xa;пізніше">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-29" edge="1" parent="1" source="0fBhj151-9g21Eerl8Ov-21" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="0fBhj151-9g21Eerl8Ov-22" value="SQL">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-30" edge="1" parent="1" source="0fBhj151-9g21Eerl8Ov-18" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.82;entryX=0.5;entryY=0;rounded=0;" target="0fBhj151-9g21Eerl8Ov-23" value="HTTP/REST&#xa;пізніше">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1913" y="1217" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fBhj151-9g21Eerl8Ov-31" edge="1" parent="1" source="0fBhj151-9g21Eerl8Ov-23" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="0fBhj151-9g21Eerl8Ov-24" value="SQL">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

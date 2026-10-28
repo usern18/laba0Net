@@ -1,0 +1,42 @@
+{
+  "capturedAt": "2026-10-21",
+  "source": "Monolith at http://localhost:5100/api/orders, before extracting OrderingService",
+  "note": "The legacy API did not require JWT authentication, did not implement per-order GET/cancel, and ignored Idempotency-Key. Trace IDs in automatic validation responses vary per request.",
+  "scenarios": {
+    "get-all-before-writes": {
+      "status": 200,
+      "body": [
+        { "id": 1, "userId": 1, "productId": 1, "productName": "Квиток на подію", "quantity": 1, "totalPrice": 500.0 },
+        { "id": 2, "userId": 1, "productId": 1, "productName": "Квиток на подію", "quantity": 1, "totalPrice": 500.0 }
+      ]
+    },
+    "create-valid": {
+      "status": 200,
+      "body": { "id": 3, "userId": 1, "productId": 1, "productName": "Квиток на подію", "quantity": 2, "totalPrice": 1000.0 }
+    },
+    "create-missing-catalog-item": {
+      "status": 400,
+      "body": { "title": "Catalog item does not exist", "status": 400 }
+    },
+    "create-zero-quantity": {
+      "status": 400,
+      "bodyShape": { "title": "One or more validation errors occurred.", "status": 400, "errors": { "Quantity": ["The field Quantity must be between 1 and 2147483647."] }, "traceId": "request-specific" }
+    },
+    "create-invalid-user-id": {
+      "status": 400,
+      "bodyShape": { "title": "One or more validation errors occurred.", "status": 400, "errors": { "UserId": ["The field UserId must be between 1 and 2147483647."] }, "traceId": "request-specific" }
+    },
+    "catalog-unavailable": {
+      "status": 503,
+      "body": { "title": "Catalog service is unavailable", "status": 503 }
+    },
+    "repeat-idempotency-key-first-request": {
+      "status": 200,
+      "body": { "id": 4, "userId": 1, "productId": 1, "productName": "Квиток на подію", "quantity": 1, "totalPrice": 500.0 }
+    },
+    "repeat-idempotency-key-second-request": {
+      "status": 200,
+      "body": { "id": 5, "userId": 1, "productId": 1, "productName": "Квиток на подію", "quantity": 1, "totalPrice": 500.0 }
+    }
+  }
+}
